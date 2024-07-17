@@ -67,7 +67,7 @@ submitBtn.onclick = () => {
     isEmailOk = true;
   }
 
-  // validate password
+  // validate password & confirm password
   if(passwordInput.value.length >= 6) {
     passwordInput.classList.add("is-valid");
     isPasswordOk = true;

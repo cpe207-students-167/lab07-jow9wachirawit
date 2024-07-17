@@ -34,23 +34,7 @@ emailInput.onclick = () => {
   emailInput.classList.remove("is-valid");
   emailInput.classList.remove("is-invalid");
 };
-submitBtn.onclick = () => {
-  if(passwordInput.value.length >= 6) {
-    passwordInput.classList.add("is-valid");
-    isPasswordOk = true;
-  } else {
-    passwordInput.classList.add("is-invalid");
-  }
-  
-  if (
-    confirmPasswordInput.value.length >= 6 || confirmPasswordInput.value === passwordInput.value
-  ) {
-    confirmPasswordInput.classList.add("is-valid");
-    isConfirmPasswordOk = true;
-  } else {
-    confirmPasswordInput.classList.add("is-invalid");
-  }
-}
+
 
 // add callback function for submit button.
 submitBtn.onclick = () => {
@@ -84,21 +68,20 @@ submitBtn.onclick = () => {
   }
 
   // validate password
-  if (passwordInput.value === "") {
-    passwordInput.classList.add("is-invalid");
-  } else if(passwordInput.value.length >= 6){
+  if(passwordInput.value.length >= 6) {
     passwordInput.classList.add("is-valid");
     isPasswordOk = true;
+  } else {
+    passwordInput.classList.add("is-invalid");
   }
-
-  // validate confirm password
-  if (confirmPasswordInput.value === "") {
-    confirmPasswordInput.classList.add("is-invalid");
-  } else if (confirmPasswordInput.value !== passwordInput.value) {
-    confirmPasswordInput.classList.add("is-invalid");
-  } else if (confirmPasswordInput.value === passwordInput.value) {
+  
+  if (
+    confirmPasswordInput.value.length >= 6 && confirmPasswordInput.value === passwordInput.value
+  ) {
     confirmPasswordInput.classList.add("is-valid");
     isConfirmPasswordOk = true;
+  } else {
+    confirmPasswordInput.classList.add("is-invalid");
   }
 
   if (

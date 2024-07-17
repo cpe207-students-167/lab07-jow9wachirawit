@@ -34,16 +34,23 @@ emailInput.onclick = () => {
   emailInput.classList.remove("is-valid");
   emailInput.classList.remove("is-invalid");
 };
-
-passwordInput.onclick = () => {
-  passwordInput.classList.remove("is-valid");
-  passwordInput.classList.remove("is-invalid");
-};
-
-confirmPasswordInput.onclick = () => {
-  confirmPasswordInput.classList.remove("is-valid");
-  confirmPasswordInput.classList.remove("is-invalid");
-};
+submitBtn.onclick = () => {
+  if(passwordInput.value.length >= 6) {
+    passwordInput.classList.add("is-valid");
+    isPasswordOk = true;
+  } else {
+    passwordInput.classList.add("is-invalid");
+  }
+  
+  if (
+    confirmPasswordInput.value.length >= 6 || confirmPasswordInput.value === passwordInput.value
+  ) {
+    confirmPasswordInput.classList.add("is-valid");
+    isConfirmPasswordOk = true;
+  } else {
+    confirmPasswordInput.classList.add("is-invalid");
+  }
+}
 
 // add callback function for submit button.
 submitBtn.onclick = () => {
